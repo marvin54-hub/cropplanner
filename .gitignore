@@ -1,0 +1,30 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+*.classpath
+*.project
+*.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Spring Boot
+*.log
+spring.log
+
+# Secrets — DO NOT commit real credentials
+# Edit application.properties locally, never commit passwords
+
+application-local.properties
+
+application-local.properties

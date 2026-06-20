@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops – CropPlanner</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="/index.html" class="logo"><span class="logo-icon">🌾</span> CropPlanner</a>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li class="auth-only" style="display:none"><a href="/dashboard.html">Dashboard</a></li>
+                <li class="guest-only"><a href="/login.html">Login</a></li>
+                <li class="auth-only" style="display:none"><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="crops-page">
+    <div class="container">
+        <div class="section-title">
+            <h2>🌱 Available Crops</h2>
+            <p>Browse all crops with growth information. Filter by season to find what's right for your farm.</p>
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterCrops('all', this)">🌿 All Crops</button>
+            <button class="filter-btn" onclick="filterCrops('Summer', this)">☀️ Summer</button>
+            <button class="filter-btn" onclick="filterCrops('Winter', this)">❄️ Winter</button>
+        </div>
+
+        <div class="crop-grid" id="cropGrid">
+            <p style="color:var(--text-muted)">Loading crops…</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <h3>🌾 CropPlanner</h3>
+                <p>A student-developed system focused on improving agricultural planning through technology.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/dashboard.html">Dashboard</a></li>
+                    <li><a href="/crops.html">Browse Crops</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Account</h4>
+                <ul class="footer-links">
+                    <li><a href="/login.html">Login</a></li>
+                    <li><a href="/register.html">Register</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 CropPlanner. All rights reserved.</div>
+    </div>
+</footer>
+
+<script src="/js/app.js"></script>
+<script>
+let allCrops = [];
+
+async function loadCropPage() {
+    try {
+        const res = await fetch('/api/crops', { credentials: 'include' });
+        allCrops  = await res.json();
+        renderCropGrid(allCrops);
+    } catch(e) {
+        document.getElementById('cropGrid').innerHTML =
+            '<p style="color:var(--text-muted)">Could not load crops. Make sure the server is running.</p>';
+    }
+}
+
+function renderCropGrid(crops) {
+    const grid = document.getElementById('cropGrid');
+    if (!crops.length) { grid.innerHTML = '<p style="color:var(--text-muted)">No crops found.</p>'; return; }
+    grid.innerHTML = crops.map(c => `
+        <div class="crop-card">
+            <div class="crop-card-top">
+                <h3>${c.name}</h3>
+                <span class="season-badge ${c.season}">${c.season === 'Summer' ? '☀️' : '❄️'} ${c.season}</span>
+            </div>
+            <p>${c.description || 'No description available.'}</p>
+            <div class="crop-meta">
+                <span class="crop-duration">⏱ ${c.growthDurationDays} days to harvest</span>
+            </div>
+        </div>`).join('');
+}
+
+function filterCrops(season, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCropGrid(season === 'all' ? allCrops : allCrops.filter(c => c.season === season));
+}
+
+loadCropPage();
+</script>
+</body>
+</html>

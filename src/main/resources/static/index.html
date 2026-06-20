@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropPlanner – Smart Farming Made Simple</title>
+    <meta name="description" content="Plan crop production, manage schedules, and predict harvest dates with ease.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌾</span> CropPlanner
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li class="guest-only"><a href="login.html">Login</a></li>
+                <li class="guest-only"><a href="register.html" class="btn btn-primary" style="color:#fff;padding:9px 22px">Get Started</a></li>
+                <li class="auth-only" style="display:none"><a href="dashboard.html">Dashboard</a></li>
+                <li class="auth-only" style="display:none"><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">🌱 Built for Small-Scale Farmers</div>
+        <h1>Plan Smarter. Grow Better. Harvest On Time.</h1>
+        <p>The digital crop planning system that helps South African farmers make informed agricultural decisions — from planting to harvest.</p>
+        <div class="hero-buttons guest-only">
+            <a href="register.html" class="btn btn-primary">Start Planting Free</a>
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+        <div class="hero-buttons auth-only" style="display:none">
+            <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num">100+</div>
+                <div class="hero-stat-label">Crop Varieties</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">2</div>
+                <div class="hero-stat-label">Seasons Tracked</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">AI</div>
+                <div class="hero-stat-label">Planting Tips</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">Free</div>
+                <div class="hero-stat-label">Always</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="features container">
+    <div class="section-title">
+        <h2>Why Choose CropPlanner?</h2>
+        <p>Replacing manual record-keeping with a digital solution tailored for you.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🌱</div>
+            <h3>Smart Recommendations</h3>
+            <p>Browse available crops for the current season and get AI-powered tips on what to plant, when to plant it, and how to maximize your yield.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h3>Accurate Schedule Tracking</h3>
+            <p>Create planting schedules and let the system automatically calculate expected harvest dates based on crop growth duration.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌤️</div>
+            <h3>Live Weather Insights</h3>
+            <p>Get real-time weather data for your farm location directly on your dashboard, with farming tips based on current conditions.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📓</div>
+            <h3>Crop Journal</h3>
+            <p>Keep notes on each planting schedule — record observations, issues, and progress throughout the growing season.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Harvest History Charts</h3>
+            <p>Visualize your harvesting patterns with easy-to-read charts. Understand which crops you grow most and track your productivity over time.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>AI Planting Tips</h3>
+            <p>Before you schedule a crop, get intelligent advice tailored to that crop's requirements, common challenges, and best practices.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <h3>🌾 CropPlanner</h3>
+                <p>A student-developed system focused on improving agricultural planning through technology. Built with care for South African small-scale farmers.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="crops.html">Browse Crops</a></li>
+                    <li><a href="register.html">Get Started</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Account</h4>
+                <ul class="footer-links">
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 CropPlanner. All rights reserved. Made for South African farmers.
+        </div>
+    </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
